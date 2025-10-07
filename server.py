@@ -41,10 +41,6 @@ def get_data():
     conn.close()
     return jsonify(rows)
 
-if __name__ == '__main__':
-    init_db()
-    app.run(host='0.0.0.0', port=5000)
-
 @app.route('/')
 def dashboard():
     conn = sqlite3.connect('iot_data.db')
@@ -58,3 +54,7 @@ def dashboard():
         html += f"<tr><td>{row[0]}</td><td>{row[1]}</td></tr>"
     html += "</table>"
     return html
+
+if __name__ == '__main__':
+    init_db()
+    app.run(host='0.0.0.0', port=5000)
