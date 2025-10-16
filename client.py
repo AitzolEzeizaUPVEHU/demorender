@@ -2,7 +2,7 @@ import requests
 import random
 import time
 
-URL = "https://demorender2.onrender.com/api/data"
+URL = "https://demorender-zzaw.onrender.com/api/data"
 
 while True:
     data = {
