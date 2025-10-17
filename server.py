@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import sqlite3
 import os
 
@@ -41,6 +41,10 @@ def get_data():
     rows = c.fetchall()
     conn.close()
     return jsonify(rows)
+
+@app.route('/sqlite_file', methods=['GET'])
+def get_sqlite_file():
+    return send_file('iot_data.db', as_attachment=True)
 
 @app.route('/')
 def dashboard():
