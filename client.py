@@ -3,6 +3,7 @@ import random
 import time
 
 URL = "http://127.0.0.1:5000"
+#URL = "https://demorender2.onrender.com/"
 URL_PATH = URL + "/api/data"
 
 while True:

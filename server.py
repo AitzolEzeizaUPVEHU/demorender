@@ -50,13 +50,13 @@ def get_sqlite_file():
 def dashboard():
     conn = sqlite3.connect('iot_data.db')
     c = conn.cursor()
-    c.execute("SELECT timestamp, value FROM sensor_data ORDER BY timestamp DESC LIMIT 20")
+    c.execute("SELECT timestamp, device_id, value FROM sensor_data ORDER BY timestamp DESC LIMIT 20")
     rows = c.fetchall()
     conn.close()
 
-    html = "<h2>IoT Sensor Data</h2><table border='1'><tr><th>Time</th><th>Value</th></tr>"
+    html = "<meta http-equiv='refresh' content='5' ><h2>IoT Sensor Data</h2><table border='1'><tr><th>Time</th><th>Device</th><th>Value</th></tr>"
     for row in rows:
-        html += f"<tr><td>{row[0]}</td><td>{row[1]}</td></tr>"
+        html += f"<tr><td>{row[0]}</td><td>{row[1]}</td><td>{row[2]}</td></tr>"
     html += "</table>"
     return html
 
